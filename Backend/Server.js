@@ -1,4 +1,4 @@
 console.log("first")
-console.log("hello world")
+console.log("hello world");
 
-console.log("hi");
+console.log("Mohith");
