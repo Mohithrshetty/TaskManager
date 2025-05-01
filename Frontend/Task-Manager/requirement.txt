@@ -1,0 +1,7 @@
+ inside task-manager folder
+ npm i axios moment react-hot-toast react-icons react-router-dom recharts
+ 
+
+
+ inside backend folder
+ npm i express jsonwebtoken mongoose multer bcryptjs cors dotenv exceljs

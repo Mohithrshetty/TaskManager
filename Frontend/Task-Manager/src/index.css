@@ -4,7 +4,7 @@
 
 
 @theme{
---font-display: 'Poppins', sans-serif;
+--font-display: "Poppins","sans-serif";
 --breakpoint-3xl: 1920px;
 --color-primary: #1368EC;
 
@@ -16,14 +16,8 @@
     font-family: var(--font-display);
   }
   body {
-    
-    font-size: 1.6rem;
-    line-height: 2.4rem;
-    color: #000;
     background-color: #fff;
+    overflow-x: hidden;
   }
-  h1, h2, h3, h4, h5, h6 {
-    font-family: var(--font-display);
-    color: #000;
-  }
+ 
 }
