@@ -16,7 +16,7 @@ const generateToken = (userId) => {
 // @access Public
 const registerUser = async (req, res) => {
   try {
-    const { name, email, password, profileImageUrl, adminInviteToken } =
+    const { name, email, password, ProfileImageUrl, adminInviteToken } =
       req.body; // Destructuring the request body to get name, email, and password
 
     // Check if user already exists
@@ -44,7 +44,7 @@ const registerUser = async (req, res) => {
       name,
       email,
       password: hashedPassword,
-      profileImageUrl,
+      ProfileImageUrl,
       role,
     });
 
@@ -55,7 +55,7 @@ const registerUser = async (req, res) => {
       name: user.name,
       email: user.email,
       role: user.role,
-      profileImageUrl: user.profileImageUrl,
+      ProfileImageUrl: user.ProfileImageUrl,
       token: generateToken(user._id), // Generate JWT token for the user
     });
   } catch (err) {
@@ -89,7 +89,7 @@ const loginUser = async (req, res) => {
       name: user.name,
       email: user.email,
       role: user.role,
-      profileImageUrl: user.profileImageUrl,
+      ProfileImageUrl: user.ProfileImageUrl,
       token: generateToken(user._id), // Generate JWT token for the user
     });
   } catch (err) {
@@ -137,6 +137,7 @@ const updateUserProfile = async (req, res) => {
       name: updatedUser.name,
       email: updatedUser.email,
       role: updatedUser.role,
+      ProfileImageUrl: updatedUser.ProfileImageUrl,
       token: generateToken(updatedUser._id), // Generate JWT token for the updated user
     });
   } catch (err) {
