@@ -66,17 +66,17 @@ const getUserById = async (req, res) => {
 // @route DELETE /api/users/:id
 // @access Private (requires authentication)
 
-const deleteUser = async (req, res) => {
-    try {
-        res.json({ message: `Deleted user with ID: ${req.params.id}` });
-    } catch (err) {
-        res.status(500).json({ message: "Server error", error: err.message }); // If an error occurs, return 500 Internal Server Error with error message
-    }
-}
+// const deleteUser = async (req, res) => {
+//     try {
+//         res.json({ message: `Deleted user with ID: ${req.params.id}` });
+//     } catch (err) {
+//         res.status(500).json({ message: "Server error", error: err.message }); // If an error occurs, return 500 Internal Server Error with error message
+//     }
+// }
 
 module.exports={
     getUsers,
     getUserById,
-    deleteUser,
+    // deleteUser,
     // Exporting the functions for use in other files
 }

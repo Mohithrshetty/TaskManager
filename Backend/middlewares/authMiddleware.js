@@ -17,7 +17,7 @@ const protect=async(req,res,next)=>{
             res.status(401).json({message:"Not authorized, no token"}); // If no token, return 401 Unauthorized
         }
     }catch(err){
-        res.status(401).json({message:"token Failed",error:error.message});
+        res.status(401).json({message:"token Failed",error:err.message});
 // If token verification fails, return 401 Unauthorized with error message
     }
       
@@ -27,7 +27,7 @@ const protect=async(req,res,next)=>{
 
 // Middleware for admin only access
 
-const admin=async(req,res,next)=>{
+const adminOnly=async(req,res,next)=>{
     try{
         if(req.user && req.user.role==="admin"){
             next(); // If user is admin, proceed to the next middleware or route handler
@@ -41,6 +41,6 @@ const admin=async(req,res,next)=>{
 
 module.exports={
     protect,
-    admin,
+    adminOnly,
     // Exporting the protect and admin middleware functions for use in other files
 }

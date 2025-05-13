@@ -46,7 +46,7 @@ const taskSchema= new mongoose.Schema({
     attachments:[{
         type:String,
     }],
-    todochecklist:[todoSchema],// subdocument schema for checklist
+    todoChecklist:[todoSchema],// subdocument schema for checklist
   progress:{
         type:Number,
         default:0,
