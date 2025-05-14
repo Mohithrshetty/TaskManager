@@ -23,7 +23,7 @@
 //         setTempSelectedUsers((prev)=>
            
 //              prev.includes(userId)
-//              ? prev.filter((id)=>id!==userId)
+            // ? prev.filter((id)=>id!==userId)
 //                 : [...prev,userId]
 //             );
 
@@ -71,7 +71,6 @@ import axiosInstance from '../../utils/axiosInstance';
 import { LuUsers } from 'react-icons/lu';
 import Modal from '../../Components/Modal'
 import AvatarGroup from '../../Components/Layouts/AvatarGroup';
-import { Avatar } from '@material-ui/core';
 
 const SelectUsers = ({ selectedUsers, setSelectedUsers }) => {
     const [allusers, setAllUsers] = useState([]);
