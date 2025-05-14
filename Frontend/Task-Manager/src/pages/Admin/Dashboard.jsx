@@ -1,31 +1,14 @@
-// import React, { useContext } from 'react'
-// import { useUserAuth } from '../../Hooks/useUserAuth'
-// import { json } from 'express';
-// import { UserContext } from '../../Contexts/UserContext';
-
-// const Dashboard = () => {
-//   useUserAuth();
-
-//   // const{user}=useContext(UserContext);
-
-//   return <div>
-//       Dashboard
-     
-    
-//     </div>
-  
-// }
-
-// export default Dashboard
-
-import React from 'react'
+import React, { useContext } from 'react'
+import { useUserAuth } from '../../Hooks/useUserAuth'
+import { UserContext } from '../../Contexts/UserContext';
+import DashboardLayout from '../../components/Layouts/DashboardLayout';
 
 const Dashboard = () => {
-  return (
-    <div>
-      
-    </div>
-  )
-}
+  useUserAuth();
 
-export default Dashboard
+  const{ user }=useContext(UserContext);
+  return <DashboardLayout>Dashboard</DashboardLayout>;
+  
+};
+
+export default Dashboard;
