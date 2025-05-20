@@ -15,7 +15,7 @@ import CustomPieChart from '../../components/Charts/CustomPieChart';
 import CustomBarChart from '../../components/Charts/CustomBarChart';
 
 
-const COLORS=["#8D51FF","00B8DB","#7BCE00"];
+const COLORS=["#8D51FF","#00B8DB","#7BCE00"];
 
 const Dashboard = () => {
   useUserAuth();
@@ -34,7 +34,7 @@ const prepareChartData=(data)=>{
 
 const taskDistributionData=[
   {status:"pending",count:taskDistribution?.pending ||0},
-  {status:"in-progress",count:taskDistribution?.inprogress || 0},
+  {status:"in-progress",count:taskDistribution?.["in-progress"] || 0},
   {status:"completed",count:taskDistribution?.completed ||0}
 ];
 
@@ -103,7 +103,7 @@ const onSeeMore=() =>{
        <InfoCard
       label="In Progress Tasks"
       value={addThousandsSeperator(
-        dashboardData?.charts?.taskDistribution?.inprogress ||0
+        dashboardData?.charts?.taskDistribution?.["in-progress"] ||0
       )}
       color="bg-cyan-500"
       />

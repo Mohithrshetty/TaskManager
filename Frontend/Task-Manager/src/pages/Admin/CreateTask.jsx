@@ -1,5 +1,5 @@
 import React,{useState} from 'react'
-import DashboardLayout from '../../Components/Layouts/DashboardLayout'
+import DashboardLayout from '../../components/Layouts/DashboardLayout'
 import {PRIORITY_DATA} from '../../utils/data'
 import axiosInstance from '../../utils/axiosInstance'
 import { API_PATHS } from '../../utils/apiPaths'

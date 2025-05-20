@@ -79,7 +79,7 @@ const SelectUsers = ({ selectedUsers, setSelectedUsers }) => {
 
     const getAllUsers = async () => {
         try {
-            const response = await axiosInstance.get(API_PATHS.USER.GET_ALL_USERS);
+            const response = await axiosInstance.get(API_PATHS.USERS.GET_ALL_USERS);
             if (response.data?.length > 0) {
                 setAllUsers(response.data);
             }
