@@ -26,11 +26,11 @@ try{
 
   //map statussummary data with fixed labels and order
   const statusSummary=response.data?.statusSummary ||{};
-
+console.log(response.data.statusSummary)
   const statusArray=[
-    {label: "All",count : statusSummary.all ||0},
-    {label:"Pending", count:statusSummary.pendingTasks ||0},
-    {label:"In Progress",count:statusSummary.inProgressTasks|| 0},
+    {label: "all",count : statusSummary.all ||0},
+    {label:"pending", count:statusSummary.pendingTasks ||0},
+    {label:"in-progress",count:statusSummary.inProgressTasks|| 0},
     {label:"completed",count:statusSummary.completedTasks || 0},
   ];
   setTabs(statusArray);
@@ -45,7 +45,24 @@ const handleClick =(taskData)=>{
 
   //downlaod task report
 const handleDownloadReport =async () =>{
+try{
+  const response=await axiosInstance.get(API_PATHS.REPORTS.EXPORT_TASKS,{
+    responseType:"blob",
+  });
 
+  //create URL for blob
+  const url=window.URL.createObjectURL(new Blob([response.data]));
+  const link=document.createElement("a");
+  link.href=url;
+  link.setAttribute("download","task_details.xlsx");
+  document.body.appendChild(link);
+  link.click();
+  link.parentNode.removeChild(link);
+  window.URL.revokeObjectURL(url);
+}catch(error){
+  console.error("error downloading report",error);
+  toast.error("failed to download the report.Try again!!!")
+}
 }
 
 useEffect(()=>{
@@ -91,7 +108,8 @@ useEffect(()=>{
           progress={item.progress}
           createdAt={item.createdAt}
           dueDate={item.dueDate}
-          assignedTo={item.assignedTo?.map((item) =>item.ProfileImageUrl)} 
+          // assignedTo={item.assignedTo?.map((user) =>user.ProfileImageUrl)} 
+          assignedTo={item.assignedTo?.map((user) => user.profileImageUrl)}
           attachmentCount={item.attachments?.length || 0}
           completedTodoCount={item.completedTodoCount || 0}
           todoChecklist ={item.todoChecklist || []}

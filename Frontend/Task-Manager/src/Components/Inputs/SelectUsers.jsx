@@ -103,7 +103,7 @@ const SelectUsers = ({ selectedUsers, setSelectedUsers }) => {
 
     const SelectedUserAvatars = allusers
         .filter((user) => selectedUsers.includes(user._id))
-        .map((user) => user.ProfileImageUrl);
+        .map((user) => user.profileImageUrl);
 
     useEffect(() => {
         getAllUsers();
@@ -149,7 +149,7 @@ const SelectUsers = ({ selectedUsers, setSelectedUsers }) => {
                              >
                                 
                                     <img
-                                        src={user.ProfileImageUrl}
+                                        src={user.profileImageUrl}
                                         alt={user.name}
                                         className="w-10 h-10 rounded-full"
                                     />

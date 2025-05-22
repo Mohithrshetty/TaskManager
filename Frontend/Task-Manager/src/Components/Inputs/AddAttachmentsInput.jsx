@@ -44,7 +44,7 @@ const AddAttachmentsInput = ({attachments,setAttachments}) => {
 
             <LuPaperclip className='text-gray-400' />
             <input
-                type="text"
+                type="file"
                 value={option}
                 onChange={({target})=>setOption(target.value)}
                 placeholder='Add an attachment'

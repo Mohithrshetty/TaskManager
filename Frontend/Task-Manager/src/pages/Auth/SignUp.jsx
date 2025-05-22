@@ -26,7 +26,7 @@ const SignUp = () => {
   const handleSignUp=async(e)=>{
     e.preventDefault();
 
-    let ProfileImageUrl='';
+    let profileImageUrl='';
     if(!Fullname){
       setError("Please enter your full name");
       return;
@@ -51,8 +51,8 @@ const SignUp = () => {
       //upload profile image if it exists
       if(profileImage){
         const imgUploadRes=await uploadImage(profileImage);
-        ProfileImageUrl=imgUploadRes.imageUrl || '';
-        console.log("Image uploaded successfully",ProfileImageUrl);
+        profileImageUrl=imgUploadRes.imageUrl || '';
+        console.log("Image uploaded successfully",profileImageUrl);
 
       }
 
@@ -60,7 +60,7 @@ const SignUp = () => {
         name:Fullname,
         email,
         password,
-        ProfileImageUrl,
+        profileImageUrl,
         adminInviteToken
       });
     const {token,role}=response.data;
